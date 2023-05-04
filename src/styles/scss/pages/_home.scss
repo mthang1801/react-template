@@ -1,0 +1,25 @@
+.home {
+	height: 100%;
+  width: 100%;
+	&__message-view {
+		height: calc(100% - 50px);
+		background: linear-gradient(to right top, #dfebf0, #87c4de);        
+	}
+	&__input-message {
+    &__form{
+      &-input{
+        height: 50px;
+      }
+    }
+    &__send-button button {
+      position : fixed;
+      bottom: 24px;
+      right: 32px;
+      font-size: 24px;
+      transition: all 0.5s;      
+      &:hover{
+        color: blue;        
+      }
+    }
+	}
+}

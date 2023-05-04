@@ -1,0 +1,18 @@
+import { TRoom } from './room.types';
+
+export declare type TCreateChannelPayload = {
+	name: string;
+	endpoint: string;
+	thumbnail: string;
+	rooms: TRoom[];
+};
+
+export default {
+	CREATE_CHANNEL_START: 'CREATE_CHANNEL_START',
+	CREATE_CHANNEL_SUCCESS: 'CREATE_CHANNEL_SUCCESS',
+	CREATE_CHANNEL_FAILURE: 'CREATE_CHANNEL_FAILURE',
+
+	GET_CHANNEL_LIST_START: 'GET_CHANNEL_LIST_START',
+	GET_CHANNEL_LIST_SUCCESS: 'GET_CHANNEL_LIST_SUCCESS',
+	GET_CHANNEL_LIST_FAILURE: 'GET_CHANNEL_LIST_FAILURE',
+};
