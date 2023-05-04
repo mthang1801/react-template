@@ -20,7 +20,7 @@ spec:
         image: mthang1801/react-template:latest
         ports: 
         - containerPort: 80
-          name: react-template-web
+          name: react-web
 ---
 apiVersion: v1 
 kind: Service 
@@ -35,6 +35,6 @@ spec:
   - name: react-template-service 
     protocol: TCP
     port: 80
-    targetPort: react-template-web
+    targetPort: react-web
     nodePort: 30001
 
