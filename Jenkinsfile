@@ -44,7 +44,7 @@ pipeline {
     stage("Installation") {
       steps { 
         sh "node -v"
-        sh "npm install"
+        sh "npm install -f"
       }
     }
     
