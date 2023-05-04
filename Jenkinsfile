@@ -80,6 +80,15 @@ pipeline {
         }
       }
     }
-    
+        
+  }
+
+  post {
+    success {
+      echo "Build Success Completely"
+    }
+    failure { 
+      echo "Build Failed."
+    }
   }
 }
