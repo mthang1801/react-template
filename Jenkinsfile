@@ -24,7 +24,7 @@ pipeline {
     }
 
     stage("Environment") {
-      enviroment {
+      environment {
         BRANCH_NAME = getBranchName()
       }
       steps {
