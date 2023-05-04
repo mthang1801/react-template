@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  name: react-template-deployment
+  labels: 
+    app : react-template
+  namespace: react-template
+spec: 
+  replicas: 2 
+  selector: 
+    matchLabels: 
+      app : react-template
+  template: 
+    metadata: 
+      labels: 
+        app : react-template
+    spec: 
+      containers: 
+      - name: react-template-container
+        image: mthang1801/react-template:latest
+        ports: 
+        - containerPort: 80
+          name: react-template-web
+---
+apiVersion: v1 
+kind: Service 
+metadata: 
+  name: react-template-service
+  namespace: react-template
+spec: 
+  selector: 
+    app : react-template
+  type: NodePort
+  ports: 
+  - name: react-template-service 
+    protocol: TCP
+    port: 80
+    targetPort: react-template-web
+    nodePort: 30001
+
