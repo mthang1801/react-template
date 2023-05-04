@@ -2,7 +2,7 @@ FROM node:16 as builder
 WORKDIR /usr/src/app
 COPY package.json . 
 COPY package-lock.json . 
-RUN npm install 
+RUN npm install --force
 COPY . . 
 RUN npm run build 
 
