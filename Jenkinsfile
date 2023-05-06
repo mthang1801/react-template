@@ -9,7 +9,8 @@ pipeline {
     nodejs "nodejs-16.20"
   }
   
-  environment {   
+  environment {
+    builderUser = ""
     dockerImage = ""
     dockerImageName = "react-template" 
     buildSuccess = false
@@ -31,7 +32,11 @@ pipeline {
           sh "git --version"
           echo "branch name: ${BRANCH_NAME}"
           sh "docker --version"
-          sh "printenv"         
+          sh "printenv"
+          wrap([$class : "BuildUser"]) {
+            buildUser = env.BUILD_USER_ID + "-" + env.BUILD_USER
+          }
+          echo "build User is : ${buildUser}"
         }
       }
     }
@@ -39,6 +44,7 @@ pipeline {
     stage("Installation") {
       steps { 
         sh "node -v"
+        sh "npm install -g yarn"
         sh "npm install -f"
       }
     }
